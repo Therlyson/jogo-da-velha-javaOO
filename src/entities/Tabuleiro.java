@@ -5,7 +5,6 @@ public class Tabuleiro {
 
     public Tabuleiro(){
         matriz = new char[3][3];
-
         for(int i=0; i < 3; i++){
             for(int j=0; j<3; j++){
                 matriz[i][j] = ' ';
@@ -28,7 +27,7 @@ public class Tabuleiro {
             System.out.print(i + " ");
             for(int j=0; j<3; j++){
                 if(matriz[i][j] == 'X'){
-                    System.out.printf(corAzul + " %c" + reset,matriz[i][j]);
+                    System.out.printf(corAzul + " %c" + reset,matriz[i][j]);  //coloca cores diferentes em X e O.
                 }
                 else{
                     System.out.printf(corLaranja + " %c" + reset,matriz[i][j]);
@@ -44,6 +43,7 @@ public class Tabuleiro {
 
     public boolean validarJogada(int linha, int coluna, char simbolo){
         if(linha >= 0 && linha <= 2 && coluna >= 0 && coluna <= 2 && matriz[linha][coluna] == ' '){
+            realizarJogada(linha, coluna, simbolo);
             return true;
         }
         return false;
